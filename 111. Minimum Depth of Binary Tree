@@ -19,5 +19,4 @@ class Solution(object):
         
         return 1+min(self.minDepth(root.left),self.minDepth(root.right))
         
-        if not root:
-            return 0
+
