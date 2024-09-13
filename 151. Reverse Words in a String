@@ -1,0 +1,21 @@
+class Solution(object):
+    def reverseWords(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        s_cleaned=s.strip()
+
+        #convert it to a list
+        list=s.split()
+        l=0
+        r=len(list)-1
+
+        while l<r:
+            list[l],list[r]=list[r],list[l]
+            l+=1
+            r-=1
+        
+        result = ' '.join(list)
+
+        return result
