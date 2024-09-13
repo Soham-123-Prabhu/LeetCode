@@ -1,0 +1,32 @@
+class Solution(object):
+    def searchMatrix(self, matrix, target):
+        """
+        :type matrix: List[List[int]]
+        :type target: int
+        :rtype: bool
+        """
+        row=len(matrix)
+        col=len(matrix[0])
+        total_elements=row*col
+
+        left=0
+        right=total_elements-1
+
+        while left<=right:
+            mid=left+right
+            row_index=mid//col
+            col_index=mid%col
+
+            mid_element=matrix[row_index][col_index]
+
+            if mid_element==target:
+                return True
+            if mid_element<target:
+                left=mid+1
+            if mid_element>target:
+                right=mid-1
+
+        return False
+
+                
+        
