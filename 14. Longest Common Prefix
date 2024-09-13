@@ -1,0 +1,21 @@
+class Solution(object):
+    def longestCommonPrefix(self,strs):
+        """
+        :type strs: List[str]
+        :rtype: str
+        """
+        longest_common_prefix=[]
+        shortest_word=strs[0]
+        if not strs:
+            return ""
+        for words in strs:
+            if len(words)<len(shortest_word):
+              shortest_word=words
+
+        for i in range(len(shortest_word)):
+            for word in strs:
+                if word[i] != shortest_word[i]:
+                    return shortest_word[:i]  
+        
+        return shortest_word
+          
