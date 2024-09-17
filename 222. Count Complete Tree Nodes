@@ -1,0 +1,48 @@
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def countNodes(self, root):
+        #Optimal solution which involves finding height of left side then of the right side. if left height == right height then no.of nodes 2*(height)-1. if not count each tree seperately. O(logN)
+
+        # Find the height of the left side
+        def leftHeight(node):
+            if not node:
+                return 0
+            return 1+leftHeight(node.left)
+    
+        def rightHeight(node):
+            if not node:
+                return 0
+            return 1+rightHeight(node.right)
+    
+        def nodeCounter(node):
+            if not node:
+                return 0
+        
+            left=leftHeight(node)
+            right=rightHeight(node)
+
+            if left==right:
+                return 2**(left)-1
+        
+            return 1+nodeCounter(node.left)+nodeCounter(node.right)
+    
+        return nodeCounter(root)
+
+
+                #O(N) solution
+        # def nodeCounter(root):
+        #     if not root:
+        #         return 0
+            
+        #     return nodeCounter(root.left) + nodeCounter(root.right) + 1
+        
+        # return nodeCounter(root)
+
+
+        
+        
