@@ -1,0 +1,28 @@
+class Solution(object):
+    def mostFrequentEven(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        from collections import Counter
+
+        even_nums=[]
+        for num in nums:
+            if num%2==0:
+                even_nums.append(num)
+        
+        if not even_nums:
+            return -1
+        
+        count=Counter(even_nums)
+
+        max_count=max(count.values())
+        most_frequent=-1
+
+        for key,val in count.items():
+            if val==max_count:
+                if most_frequent==-1 or key<most_frequent:
+                    most_frequent=key
+        
+    
+        return most_frequent
