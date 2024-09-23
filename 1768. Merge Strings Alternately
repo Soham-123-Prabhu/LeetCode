@@ -1,0 +1,28 @@
+class Solution(object):
+    def mergeAlternately(self, word1, word2):
+        """
+        :type word1: str
+        :type word2: str
+        :rtype: str
+        """
+        list_of_word1=list(word1)
+        list_of_word2=list(word2)
+
+        merged_list=[]
+        len1=len(list_of_word1)
+        len2=len(list_of_word2)
+
+        for i in range(min(len1,len2)):
+            merged_list.append(list_of_word1[i])
+            merged_list.append(list_of_word2[i])
+
+        if len1>len2:
+            merged_list.extend(list_of_word1[len2:])    #need to EXTEND NOT APPEND
+        if len1<len2:
+            merged_list.extend(list_of_word2[len1:])
+        
+        str_of_merge=''.join(merged_list)
+
+        return str_of_merge
+
+        
