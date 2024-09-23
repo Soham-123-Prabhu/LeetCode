@@ -1,16 +1,16 @@
-class Solution {
-public:
-    bool isPalindrome(int x) {
-        string a= to_string(x);
-        int left = 0;
-        int right = a.length() - 1;
-        while (left < right) {
-            if (a[left] != a[right]) {
-                return false;
-            }
-            left++;
-            right--;
-        }
-        return true; 
-    }
-};
+class Solution(object):
+    def isPalindrome(self, x):
+        """
+        :type x: int
+        :rtype: bool
+        """
+        list1=[]
+        if x<0:
+            return False
+        if x==0:return True
+        while x>0:
+            list1.append(x%10)
+            x//=10
+
+        return list1==list1[::-1]
+
