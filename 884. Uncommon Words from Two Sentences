@@ -1,0 +1,23 @@
+class Solution(object):
+    def uncommonFromSentences(self, s1, s2):
+        """
+        :type s1: str
+        :type s2: str
+        :rtype: List[str]
+        """
+        from collections import Counter
+
+        list1=s1.split()
+        list2=s2.split()
+
+        list1.extend(list2)
+
+        counter=Counter(list1)
+
+        result=[]
+
+        for key,value in counter.items():
+            if value<2:
+                result.append(key)
+        
+        return result
